@@ -156,3 +156,17 @@ SELECT COUNT(*) FROM admissions
 
   </p>
 </details>
+
+###### 12. Show all the columns from admissions where the patient was admitted and discharged on the same day.
+
+<details>
+  <summary>Solution</summary>
+  <p>
+
+```sql
+SELECT * FROM admissions
+WHERE admission_date = discharge_date
+```
+
+  </p>
+</details>
