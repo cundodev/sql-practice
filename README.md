@@ -3,6 +3,7 @@
 ### Hospital DB
 
 <img src='/img/hospital-der.png' />
+
 ###### 1. Show first name, last name, and gender of patients whose gender is 'M'
 
 <details>
@@ -111,6 +112,19 @@ ON pn.province_id = p.province_id
 ```sql
 SELECT COUNT(*) FROM patients
 WHERE YEAR(birth_date) = 2010
+```
+
+  </p>
+</details>
+
+###### 9. Show the first_name, last_name, and height of the patient with the greatest height.
+
+<details>
+  <summary>Solution</summary>
+  <p>
+
+```sql
+SELECT first_name, last_name, MAX(height) FROM patients
 ```
 
   </p>
