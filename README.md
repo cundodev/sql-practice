@@ -86,3 +86,20 @@ SELECT CONCAT(first_name,' ', last_name) FROM patients
 
   </p>
 </details>
+
+###### 7. Show first name, last name, and the full province name of each patient.
+
+Example: 'Ontario' instead of 'ON'
+
+<details>
+  <summary>Solution</summary>
+  <p>
+
+```sql
+SELECT first_name, last_name, province_name FROM patients p
+INNER JOIN province_names pn
+ON pn.province_id = p.province_id
+```
+
+  </p>
+</details>
