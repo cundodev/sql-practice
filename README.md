@@ -184,3 +184,17 @@ WHERE patient_id = 579
 
   </p>
 </details>
+
+###### 14. Based on the cities that our patients live in, show unique cities that are in province_id 'NS'?
+
+<details>
+  <summary>Solution</summary>
+  <p>
+
+```sql
+SELECT DISTINCT city FROM patients
+WHERE province_id = 'NS'
+```
+
+  </p>
+</details>
