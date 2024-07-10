@@ -30,3 +30,17 @@ WHERE allergies IS NULL
 
   </p>
 </details>
+
+###### 3. Show first name of patients that start with the letter 'C'
+
+<details>
+  <summary>Solution</summary>
+  <p>
+
+```sql
+SELECT first_name FROM patients
+WHERE first_name LIKE 'C%'
+```
+
+  </p>
+</details>
