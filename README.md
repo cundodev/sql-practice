@@ -143,3 +143,16 @@ WHERE patient_id IN (1,45,534,879,1000)
 
   </p>
 </details>
+
+###### 11. Show the total number of admissions
+
+<details>
+  <summary>Solution</summary>
+  <p>
+
+```sql
+SELECT COUNT(*) FROM admissions
+```
+
+  </p>
+</details>
