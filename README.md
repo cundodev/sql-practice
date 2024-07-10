@@ -58,3 +58,18 @@ WHERE weight BETWEEN 100 AND 120
 
   </p>
 </details>
+
+###### 5. Update the patients table for the allergies column. If the patient's allergies is null then replace it with 'NKA'
+
+<details>
+  <summary>Solution</summary>
+  <p>
+
+```sql
+UPDATE patients
+SET allergies = 'NKA'
+WHERE allergies IS NULL
+```
+
+  </p>
+</details>
