@@ -4,6 +4,10 @@
 
 <img src='/img/hospital-der.png' />
 
+---
+
+#### Easy
+
 ###### 1. Show first name, last name, and gender of patients whose gender is 'M'
 
 <details>
@@ -222,6 +226,24 @@ WHERE height > 160 AND weight > 70
 ```sql
 SELECT first_name, last_name, allergies FROM patients
 WHERE allergies IS NOT NULL AND city = 'Hamilton'
+```
+
+  </p>
+</details>
+
+---
+
+#### Medium
+
+###### 1. Show unique birth years from patients and order them by ascending.
+
+<details>
+  <summary>Solution</summary>
+  <p>
+
+```sql
+SELECT DISTINCT YEAR(birth_date) FROM patients
+ORDER BY birth_date ASC
 ```
 
   </p>
