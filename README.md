@@ -248,3 +248,18 @@ ORDER BY birth_date ASC
 
   </p>
 </details>
+
+###### 2. Show unique first names from the patients table which only occurs once in the list.
+
+<details>
+  <summary>Solution</summary>
+  <p>
+
+```sql
+SELECT first_name FROM patients
+GROUP BY first_name
+HAVING COUNT(first_name) = 1
+```
+
+  </p>
+</details>
