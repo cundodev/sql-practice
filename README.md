@@ -296,3 +296,17 @@ WHERE diagnosis = 'Dementia'
 
   </p>
 </details>
+
+###### 5. Display every patient's first_name. Order the list by the length of each name and then by alphabetically.
+
+<details>
+  <summary>Solution</summary>
+  <p>
+
+```sql
+SELECT first_name FROM patients
+order by len(first_name), first_name
+```
+
+  </p>
+</details>
