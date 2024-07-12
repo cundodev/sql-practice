@@ -305,7 +305,28 @@ WHERE diagnosis = 'Dementia'
 
 ```sql
 SELECT first_name FROM patients
-order by len(first_name), first_name
+ORDER BY LEN(first_name), first_name
+```
+
+  </p>
+</details>
+
+###### 6. Show the total amount of male patients and the total amount of female patients in the patients table. Display the two results in the same row.
+
+<details>
+  <summary>Solution</summary>
+  <p>
+
+```sql
+SELECT
+  SUM(gender = 'M') AS Male,
+  SUM(gender = 'F') AS Female
+FROM patients
+---
+SELECT
+  SUM(CASE WHEN gender = 'M' THEN 1 END) AS male_count,
+  SUM(CASE WHEN gender = 'F' THEN 1 END) AS female_count
+FROM patients;
 ```
 
   </p>
