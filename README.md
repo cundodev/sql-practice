@@ -280,3 +280,19 @@ WHERE first_name LIKE 's____%s'
 
   </p>
 </details>
+
+###### 4. Show patient_id, first_name, last_name from patients whos diagnosis is 'Dementia'. Primary diagnosis is stored in the admissions table.
+
+<details>
+  <summary>Solution</summary>
+  <p>
+
+```sql
+SELECT p.patient_id, first_name, last_name FROM patients p
+INNER JOIN admissions a
+ON p.patient_id = a.patient_id
+WHERE diagnosis = 'Dementia'
+```
+
+  </p>
+</details>
