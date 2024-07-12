@@ -346,3 +346,18 @@ ORDER BY allergies, first_name, last_name
 
   </p>
 </details>
+
+###### 8. Show patient_id, diagnosis from admissions. Find patients admitted multiple times for the same diagnosis.
+
+<details>
+  <summary>Solution</summary>
+  <p>
+
+```sql
+SELECT patient_id, diagnosis FROM admissions
+GROUP BY patient_id,diagnosis
+HAVING count(*) > 1
+```
+
+  </p>
+</details>
