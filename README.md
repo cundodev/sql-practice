@@ -470,3 +470,19 @@ WHERE last_name = 'Maroni'
 
   </p>
 </details>
+
+###### 16. Show all of the days of the month (1-31) and how many admission_dates occurred on that day. Sort by the day with most admissions to least admissions.
+
+<details>
+  <summary>Solution</summary>
+  <p>
+
+```sql
+SELECT DAY(admission_date) AS admissions_day, count(*) admissions_for_day
+FROM admissions
+GROUP BY admissions_day
+ORDER BY admissions_for_day DESC
+```
+
+  </p>
+</details>
