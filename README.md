@@ -527,7 +527,7 @@ attending_doctor_id LIKE '%2%' AND LEN(patient_id) = 3
   </p>
 </details>
 
-###### 19.Show first_name, last_name, and the total number of admissions attended for each doctor. Every admission has been attended by a doctor.
+###### 19. Show first_name, last_name, and the total number of admissions attended for each doctor. Every admission has been attended by a doctor.
 
 <details>
   <summary>Solution</summary>
@@ -539,6 +539,23 @@ FROM admissions
 INNER JOIN doctors d
 ON attending_doctor_id = doctor_id
 GROUP BY d.first_name, d.last_name
+```
+
+  </p>
+</details>
+
+###### 20. For each doctor, display their id, full name, and the first and last admission date they attended.
+
+<details>
+  <summary>Solution</summary>
+  <p>
+
+```sql
+SELECT d.doctor_id, CONCAT(d.first_name,' ', d.last_name) AS full_name, MIN(admission_date) AS first_admission, MAX(admission_date) AS last_admission
+FROM admissions
+INNER JOIN doctors d
+ON attending_doctor_id = doctor_id
+GROUP BY doctor_id
 ```
 
   </p>
