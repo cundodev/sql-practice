@@ -526,3 +526,20 @@ attending_doctor_id LIKE '%2%' AND LEN(patient_id) = 3
 
   </p>
 </details>
+
+###### 19.Show first_name, last_name, and the total number of admissions attended for each doctor. Every admission has been attended by a doctor.
+
+<details>
+  <summary>Solution</summary>
+  <p>
+
+```sql
+SELECT d.first_name, d.last_name, COUNT(*) AS total_admissions
+FROM admissions
+INNER JOIN doctors d
+ON attending_doctor_id = doctor_id
+GROUP BY d.first_name, d.last_name
+```
+
+  </p>
+</details>
