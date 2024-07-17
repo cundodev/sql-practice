@@ -439,3 +439,19 @@ ORDER BY first_name DESC
 
   </p>
 </details>
+
+###### 14. Show the province_id(s), sum of height; where the total sum of its patient's height is greater than or equal to 7,000.
+
+<details>
+  <summary>Solution</summary>
+  <p>
+
+```sql
+SELECT province_id, SUM(height) AS max_height
+FROM patients
+GROUP BY province_id
+HAVING max_height >= 7000
+```
+
+  </p>
+</details>
