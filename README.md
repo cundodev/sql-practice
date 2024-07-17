@@ -376,3 +376,20 @@ ORDER BY total_patients DESC, city ASC
 
   </p>
 </details>
+
+###### 10. Show first name, last name and role of every person that is either patient or doctor. The roles are either "Patient" or "Doctor"
+
+<details>
+  <summary>Solution</summary>
+  <p>
+
+```sql
+SELECT first_name, last_name, 'Patient' AS role
+FROM patients
+UNION ALL
+SELECT first_name, last_name, 'Doctor' AS role
+FROM doctors
+```
+
+  </p>
+</details>
