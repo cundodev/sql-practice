@@ -560,3 +560,20 @@ GROUP BY doctor_id
 
   </p>
 </details>
+
+###### 21. Display the total amount of patients for each province. Order by descending.
+
+<details>
+  <summary>Solution</summary>
+  <p>
+
+```sql
+SELECT province_name, COUNT(*) AS total_patients FROM patients p
+INNER JOIN province_names pn
+ON p.province_id = pn.province_id
+GROUP BY province_name
+ORDER BY total_patients DESC
+```
+
+  </p>
+</details>
