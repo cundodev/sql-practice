@@ -595,3 +595,19 @@ ON a.attending_doctor_id = d.doctor_id
 
   </p>
 </details>
+
+###### 23. Display the first name, last name and number of duplicate patients based on their first name and last name.
+
+<details>
+  <summary>Solution</summary>
+  <p>
+
+```sql
+SELECT first_name, last_name, COUNT(*) AS duplicates
+FROM patients
+GROUP BY first_name, last_name
+HAVING duplicates > 1
+```
+
+  </p>
+</details>
