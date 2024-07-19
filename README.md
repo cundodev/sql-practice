@@ -577,3 +577,21 @@ ORDER BY total_patients DESC
 
   </p>
 </details>
+
+###### 22. For every admission, display the patient's full name, their admission diagnosis, and their doctor's full name who diagnosed their problem.
+
+<details>
+  <summary>Solution</summary>
+  <p>
+
+```sql
+SELECT CONCAT(p.first_name,' ', p.last_name) AS full_name_patient, diagnosis, CONCAT(d.first_name,' ', d.last_name) AS full_name_doctor
+FROM patients p
+INNER JOIN admissions a
+ON p.patient_id = a.patient_id
+INNER JOIN doctors d
+ON a.attending_doctor_id = d.doctor_id
+```
+
+  </p>
+</details>
