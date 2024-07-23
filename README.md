@@ -704,3 +704,24 @@ FROM patients
 
   </p>
 </details>
+
+###### 3. Show patient_id, first_name, last_name, and attending doctor's specialty.Show only the patients who has a diagnosis as 'Epilepsy' and the doctor's first name is 'Lisa'
+
+_Check patients, admissions, and doctors tables for required information._
+
+<details>
+  <summary>Solution</summary>
+  <p>
+
+```sql
+SELECT p.patient_id, p.first_name, p.last_name, d.specialty
+FROM patients p
+INNER JOIN admissions a
+ON a.patient_id = p.patient_id
+INNER JOIN doctors d
+ON a.attending_doctor_id = d.doctor_id
+WHERE d.first_name = 'Lisa' AND diagnosis = 'Epilepsy'
+```
+
+  </p>
+</details>
