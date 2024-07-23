@@ -767,18 +767,61 @@ GROUP BY patient_id
 
 ```sql
 SELECT
-	CASE
-    	WHEN patient_id % 2 = 0 THEN 'Yes'
-      ELSE 'No'
+  CASE
+    WHEN patient_id % 2 = 0 THEN 'Yes'ELSE 'No'
   END AS has_insurance,
   SUM(
-		CASE
-    		WHEN patient_id % 2 = 0 THEN 10
-        ELSE 50
+    CASE
+      WHEN patient_id % 2 = 0 THEN 10 ELSE 50
     END
     ) AS admissio_total
 FROM admissions
 GROUP BY has_insurance
+
+----
+
+SELECT
+  has_insurance,
+  CASE
+    WHEN has_insurance = 'Yes' THEN COUNT(has_insurance) * 10
+    ELSE COUNT(has_insurance) * 50
+  END AS cost_after_insurance
+FROM (
+    SELECT
+      CASE
+        WHEN patient_id % 2 = 0 THEN 'Yes'
+        ELSE 'No'
+      END AS has_insurance
+    FROM admissions
+  )
+GROUP BY has_insurance
+
+----
+
+SELECT has_insurance,SUM(admission_cost) AS admission_total
+FROM
+(
+   SELECT patient_id,
+   CASE WHEN patient_id % 2 = 0 THEN 'Yes' ELSE 'No'
+   END AS has_insurance,
+   CASE WHEN patient_id % 2 = 0 THEN 10 ELSE 50
+   END AS admission_cost
+   FROM admissions
+)
+GROUP BY has_insurance
+```
+
+  </p>
+</details>
+
+###### 6. Show the provinces that has more patients identified as 'M' than 'F'. Must only show full province_name
+
+<details>
+  <summary>Solution</summary>
+  <p>
+
+```sql
+
 ```
 
   </p>
