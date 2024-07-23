@@ -821,7 +821,11 @@ GROUP BY has_insurance
   <p>
 
 ```sql
-
+SELECT province_name FROM patients
+INNER JOIN province_names
+USING(province_id)
+GROUP BY province_name
+HAVING SUM(gender = 'M') > SUM(gender ='F')
 ```
 
   </p>
