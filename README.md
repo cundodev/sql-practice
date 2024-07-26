@@ -856,3 +856,27 @@ AND city = 'Kingston'
 
   </p>
 </details>
+
+###### 8. Show the percent of patients that have 'M' as their gender. Round the answer to the nearest hundreth number and in percent form.
+
+<details>
+  <summary>Solution</summary>
+  <p>
+
+```sql
+SELECT CONCAT(ROUND(
+  COUNT(CASE WHEN gender = 'M' THEN 1 END) * 100.0
+  /
+  COUNT(*)
+  ,2),'%') AS percent_of_male
+FROM patients
+----
+SELECT CONCAT(
+  ROUND(
+    AVG(CASE WHEN gender = 'M' THEN 1 ELSE 0 END) * 100.0
+  ,2),'%') AS percent_of_male
+FROM patients
+```
+
+  </p>
+</details>
