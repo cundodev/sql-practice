@@ -880,3 +880,22 @@ FROM patients
 
   </p>
 </details>
+
+###### 9. For each day display the total amount of admissions on that day. Display the amount changed from the previous date.
+
+<details>
+  <summary>Solution</summary>
+  <p>
+
+```sql
+SELECT admission_date, admission_day,
+admission_day - LAG(admission_day) OVER (ORDER BY admission_date) AS admissions_change
+FROM (
+  SELECT admission_date, COUNT(*) AS admission_day
+  FROM admissions
+  GROUP BY admission_date
+)
+```
+
+  </p>
+</details>
