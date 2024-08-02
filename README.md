@@ -918,3 +918,24 @@ ORDER BY CASE WHEN province_name = 'Ontario' THEN 0 ELSE 1 END
 
   </p>
 </details>
+
+###### 11. We need a breakdown for the total amount of admissions each doctor has started each year. Show the doctor_id, doctor_full_name, specialty, year, total_admissions for that year.
+
+<details>
+  <summary>Solution</summary>
+  <p>
+
+```sql
+SELECT doctor_id,
+CONCAT(first_name,' ',last_name) AS full_name,
+specialty,
+YEAR(admission_date) AS year_admission,
+COUNT(admission_date) AS total_admissions_per_year
+FROM admissions
+INNER JOIN doctors ON attending_doctor_id = doctor_id
+GROUP BY year_admission, full_name
+ORDER BY doctor_id
+```
+
+  </p>
+</details>
